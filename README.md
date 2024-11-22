@@ -1,1 +1,1 @@
-# laravel10x-books
+## Projeto para estudos de Laravel 10x
