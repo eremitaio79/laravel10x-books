@@ -1,0 +1,10 @@
+
+   ERROR  Command "route:list-" is not defined. Did you mean one of these?  
+
+  ⇂ channel:list  
+  ⇂ event:list  
+  ⇂ route:cache  
+  ⇂ route:clear  
+  ⇂ route:list  
+  ⇂ schedule:list  
+
