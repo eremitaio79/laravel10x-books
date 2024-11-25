@@ -16,11 +16,12 @@ class ProdutoController extends Controller
         $idade = 23;
         $html_teste = '<h2><strong>Teste de html</strong></h2>';
 
-        return view('news', [
-            'nome' => $nome,
-            'idade' => $idade,
-            'html_teste' => $html_teste
-        ]);
+        // return view('news', [
+        //     'nome' => $nome,
+        //     'idade' => $idade,
+        //     'html_teste' => $html_teste
+        // ]);
+        return view('site.home');
     }
 
     /**
