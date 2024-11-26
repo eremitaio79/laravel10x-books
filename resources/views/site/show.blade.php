@@ -18,8 +18,19 @@
                             Postado por: <strong>{{ $produto->user->firstName }} {{ $produto->user->lastName}}</strong><br />
                             Categoria: <strong>{{ $produto->categoria->nome }}</strong><br />
                         </p>
-                        <a href="#" class="btn btn-warning">Comprar</a>
-                        <a href="{{ url('/') }}" class="btn btn-secondary">Voltar</a>
+                        <form action="{{ route('site.addcarrinho') }}" method="post" enctype="multipart/form-data" target="_self">
+                            @csrf
+                            <input type="hidden" id="id" name="id" value="{{ $produto->id }}" />
+                            <input type="hidden" id="name" name="name" value="{{ $produto->nome }}" />
+
+                            <label for="price">Quantidade</label>
+                            <input type="hidden" id="price" name="price" value="{{ $produto->preco }}" />
+                            <input type="number" id="qnt" name="qnt" value="1" class="form-control" /><hr />
+                            <input type="hidden" id="img" name="img" value="{{ $produto->imagem }}" />
+
+                            <button type="submit" class="btn btn-warning">Comprar</button>
+                            <a href="{{ url('/') }}" class="btn btn-secondary">Voltar</a>
+                        </form>
                     </div>
                 </div>
             </div>

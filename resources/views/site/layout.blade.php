@@ -32,7 +32,7 @@
                             <a class="nav-link active" aria-current="page" href="{{ url('/') }}" target="_self">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Carrinho</a>
+                            <a class="nav-link" href="{{ route('site.carrinho') }}" target="_self">Carrinho</a>
                         </li>
                         <li class="nav-item">
                             <div class="dropdown">
