@@ -12,16 +12,23 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        $nome = 'Paulo';
-        $idade = 23;
-        $html_teste = '<h2><strong>Teste de html</strong></h2>';
+        // $nome = 'Paulo';
+        // $idade = 23;
+        // $html_teste = '<h2><strong>Teste de html</strong></h2>';
 
         // return view('news', [
         //     'nome' => $nome,
         //     'idade' => $idade,
         //     'html_teste' => $html_teste
         // ]);
-        return view('site.home');
+
+        // Retorna todos os produtos da tabela.
+        // $produtos = Produto::all();
+
+        // Retorna uma quantidade de registros por página.
+        $produtos = Produto::paginate(10);
+
+        return view('site.home', compact('produtos'));
     }
 
     /**
