@@ -29,10 +29,26 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="{{ url('/') }}" target="_self">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Carrinho</a>
+                        </li>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <a class="btn btn-success dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Categorias
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                    @foreach ($menuCategoriasKey as $itemCategoria)
+                                    <li><a class="dropdown-item" href="{{ route('site.categoria', $itemCategoria->id) }}">{{ $itemCategoria->nome  }}</a></li>
+                                    @endforeach
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Todas as Categorias</a></li>
+                                </ul>
+                            </div>
                         </li>
                     </ul>
                 </div>
