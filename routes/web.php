@@ -31,6 +31,7 @@ Route::get('/categoria/{id}', [ProdutoController::class, 'categoria'])->name('si
 
 // Cart.
 Route::get('/carrinho', [CarrinhoController::class, 'carrinhoLista'])->name('site.carrinho');
+Route::post('/carrinho', [CarrinhoController::class, 'adicionaCarrinho'])->name('site.addcarrinho');
 
 // // My routes. Routes types.
 // // Teste1.
