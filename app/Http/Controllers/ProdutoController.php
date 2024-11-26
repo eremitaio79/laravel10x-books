@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 
@@ -50,9 +51,11 @@ class ProdutoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Produto $produto)
+    public function show(Produto $produto, $slug)
     {
-        //
+        $produto = Produto::where('slug', $slug)->first(); // first() retorna apenas um registro.
+
+        return view('site.show', compact('produto'));
     }
 
     /**
@@ -77,5 +80,14 @@ class ProdutoController extends Controller
     public function destroy(Produto $produto)
     {
         //
+    }
+
+    public function categoria($id)
+    {
+        $categoria = Categoria::find($id);
+
+        // $produtosDaCategoria = Produto::where('id_categoria', $id)->get(); // get() retorna os registros selecionados.
+        $produtosDaCategoria = Produto::where('id_categoria', $id)->paginate(2); // get() retorna os registros selecionados.
+        return view('site.categoria', compact('produtosDaCategoria', 'categoria'));
     }
 }
