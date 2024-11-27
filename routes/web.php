@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CarrinhoController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProdutoController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +36,12 @@ Route::post('/carrinho', [CarrinhoController::class, 'adicionaCarrinho'])->name(
 Route::post('/removecarrinho', [CarrinhoController::class, 'removeCarrinho'])->name('site.removecarrinho');
 Route::post('/atualizacarrinho', [CarrinhoController::class, 'atualizaCarrinho'])->name('site.atualizacarrinho');
 Route::get('/limpacarrinho', [CarrinhoController::class, 'limpaCarrinho'])->name('site.limpacarrinho');
+
+// Login
+Route::view('/login', 'login.form')->name('login.form');
+Route::post('/auth', [LoginController::class, 'auth'])->name('login.auth');
+Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout');
 
 // // My routes. Routes types.
 // // Teste1.
