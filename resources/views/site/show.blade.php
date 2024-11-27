@@ -25,7 +25,7 @@
 
                             <label for="price">Quantidade</label>
                             <input type="hidden" id="price" name="price" value="{{ $produto->preco }}" />
-                            <input type="number" id="qnt" name="qnt" value="1" class="form-control" /><hr />
+                            <input type="number" id="qnt" name="qnt" min="1" value="1" class="form-control" /><hr />
                             <input type="hidden" id="img" name="img" value="{{ $produto->imagem }}" />
 
                             <button type="submit" class="btn btn-warning">Comprar</button>

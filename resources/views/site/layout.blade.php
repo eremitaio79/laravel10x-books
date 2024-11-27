@@ -35,13 +35,15 @@
                         <li class="nav-item">
                             <a class="nav-link position-relative" href="{{ route('site.carrinho') }}" target="_self">
                                 Carrinho
-                                <span
-                                    class="position-absolute top-10 start-90 translate-middle badge rounded-pill bg-danger"
-                                    style="font-size: 0.6rem; padding: 0.15rem 0.35rem;">
-                                    {{ \Cart::getContent()->count() }}
-                                    <span class="visually-hidden">Cart</span>
-                                </span>
+                                @if (\Cart::getContent()->count() != 0)
+                                    <span
+                                        class="position-absolute top-10 start-90 translate-middle badge rounded-pill bg-danger"
+                                        style="font-size: 0.6rem; padding: 0.15rem 0.35rem;">
 
+                                        {{ \Cart::getContent()->count() }}
+                                        <span class="visually-hidden">Cart</span>
+                                    </span>
+                                @endif
                             </a>
                         </li>
 
