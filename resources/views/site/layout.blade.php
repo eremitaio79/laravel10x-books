@@ -85,11 +85,13 @@
                         </li>
                     @endauth
 
+                    @auth
                     <li class="nav-item">
                         <a class="nav-link position-relative" href="{{ route('login.logout') }}">
                             Logout
                         </a>
                     </li>
+                    @endauth
                 </ul>
             </div>
         </div>
