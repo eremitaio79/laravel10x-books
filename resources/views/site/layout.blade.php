@@ -29,26 +29,38 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{ url('/') }}" target="_self">Home</a>
+                            <a class="nav-link active" aria-current="page" href="{{ url('/') }}"
+                                target="_self">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('site.carrinho') }}" target="_self">Carrinho</a>
-                        </li>
-                        <li class="nav-item">
-                            <div class="dropdown">
-                                <a class="btn btn-success dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Categorias
-                                </a>
+                            <a class="nav-link position-relative" href="{{ route('site.carrinho') }}" target="_self">
+                                Carrinho
+                                <span
+                                    class="position-absolute top-10 start-90 translate-middle badge rounded-pill bg-danger"
+                                    style="font-size: 0.6rem; padding: 0.15rem 0.35rem;">
+                                    {{ \Cart::getContent()->count() }}
+                                    <span class="visually-hidden">Cart</span>
+                                </span>
 
-                                <ul class="dropdown-menu">
-                                    @foreach ($menuCategoriasKey as $itemCategoria)
-                                    <li><a class="dropdown-item" href="{{ route('site.categoria', $itemCategoria->id) }}">{{ $itemCategoria->nome  }}</a></li>
-                                    @endforeach
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Todas as Categorias</a></li>
-                                </ul>
-                            </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Categorias
+                            </a>
+                            <ul class="dropdown-menu">
+                                @foreach ($menuCategoriasKey as $itemCategoria)
+                                    <li><a class="dropdown-item"
+                                            href="{{ route('site.categoria', $itemCategoria->id) }}">{{ $itemCategoria->nome }}</a>
+                                    </li>
+                                @endforeach
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Todas as Categorias</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -56,7 +68,9 @@
         </nav>
         {{-- NAVBAR END --}}
 
+        {{-- CONTENT --}}
         @yield('conteudo')
+        {{-- CONTENT --}}
 
 
 
