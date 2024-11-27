@@ -23,7 +23,6 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/produto/{id?}', [ProdutoController::class, 'show'])->name('produto.show');
 
 Route::resource('produtos', ProdutoController::class);
-
 // Produtos.
 Route::get('/', [ProdutoController::class, 'index'])->name('site.index'); // index (homepage).
 Route::get('/produto/{slug}', [ProdutoController::class, 'show'])->name('site.show'); // show (details).
@@ -32,6 +31,9 @@ Route::get('/categoria/{id}', [ProdutoController::class, 'categoria'])->name('si
 // Cart.
 Route::get('/carrinho', [CarrinhoController::class, 'carrinhoLista'])->name('site.carrinho');
 Route::post('/carrinho', [CarrinhoController::class, 'adicionaCarrinho'])->name('site.addcarrinho');
+Route::post('/removecarrinho', [CarrinhoController::class, 'removeCarrinho'])->name('site.removecarrinho');
+Route::post('/atualizacarrinho', [CarrinhoController::class, 'atualizaCarrinho'])->name('site.atualizacarrinho');
+Route::get('/limpacarrinho', [CarrinhoController::class, 'limpaCarrinho'])->name('site.limpacarrinho');
 
 // // My routes. Routes types.
 // // Teste1.
