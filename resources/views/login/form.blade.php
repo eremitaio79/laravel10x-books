@@ -27,6 +27,12 @@
 
     <div class="row mb-3">
         <div class="col-12">
+            <input type="checkbox" id="remember" name="remember" class="form-control" />Lembrar-me
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-12">
             <button type="submit" class="btn btn-primary">Entrar</button>
         </div>
     </div>

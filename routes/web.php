@@ -4,6 +4,7 @@ use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,8 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/produto/{id?}', [ProdutoController::class, 'show'])->name('produto.show');
 
 Route::resource('produtos', ProdutoController::class);
+Route::resource('users', UserController::class);
+
 // Produtos.
 Route::get('/', [ProdutoController::class, 'index'])->name('site.index'); // index (homepage).
 Route::get('/produto/{slug}', [ProdutoController::class, 'show'])->name('site.show'); // show (details).
@@ -43,6 +46,7 @@ Route::post('/auth', [LoginController::class, 'auth'])->name('login.auth');
 // Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard')->middleware('auth');
  Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard')->middleware(['auth', 'checkemail']);
 Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout');
+Route::get('/register', [LoginController::class, 'create'])->name('login.create');
 
 // // My routes. Routes types.
 // // Teste1.
