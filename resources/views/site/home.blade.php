@@ -17,8 +17,11 @@
                                 {{ Str::limit($produto->descricao, 50) }}
                             </p>
                             <p class="card-text"><strong>R$ {{ number_format($produto->preco, 2, ',', '.') }}</strong></p>
-                            <a href="{{ route('site.show', $produto->slug) }}" class="btn btn-primary"><i
-                                    class="fa-solid fa-user"></i>&nbsp;&nbsp;Detalhes do Produto...</a>
+
+                            {{-- @can('verProduto', $produto) --}}
+                                <a href="{{ route('site.show', $produto->slug) }}" class="btn btn-primary"><i
+                                        class="fa-solid fa-user"></i>&nbsp;&nbsp;Detalhes do Produto...</a>
+                            {{-- @endcan --}}
                         </div>
                     </div>
                 </div>

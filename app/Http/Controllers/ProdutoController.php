@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categoria;
 use App\Models\Produto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ProdutoController extends Controller
 {
@@ -54,6 +55,12 @@ class ProdutoController extends Controller
     public function show(Produto $produto, $slug)
     {
         $produto = Produto::where('slug', $slug)->first(); // first() retorna apenas um registro.
+
+        // Usando Gate.
+        // Gate::authorize('ver-produto', $produto);
+
+        // Usando Policy.
+        // $this->authorize('verProduto', $produto);
 
         return view('site.show', compact('produto'));
     }

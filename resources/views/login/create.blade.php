@@ -1,15 +1,25 @@
-@if ($msg = Session::get('erro'))
-    {{ $msg }}
-@endif
-
 @if ($errors->any())
     @foreach ($errors->all() as $error)
         <p>{{ $error }}</p>
     @endforeach
 @endif
 
-<form action="{{ route('login.auth') }}" target="_self" method="POST" enctype="multipart/form-data">
+<form action="{{ route('users.store') }}" target="_self" method="POST" enctype="multipart/form-data">
     @csrf
+
+    <div class="row mb-3">
+        <div class="col-12">
+            <label for="firstName">Nome</label>
+            <input type="text" id="firstName" name="firstName" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-12">
+            <label for="lastName">Sobrenome</label>
+            <input type="text" id="lastName" name="lastName" class="form-control" />
+        </div>
+    </div>
 
     <div class="row mb-3">
         <div class="col-12">
@@ -27,7 +37,7 @@
 
     <div class="row mb-3">
         <div class="col-12">
-            <button type="submit" class="btn btn-primary">Entrar</button>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
         </div>
     </div>
 </form>
